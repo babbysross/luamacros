@@ -19,15 +19,11 @@ lmc_set_handler('MACROS',function(button, direction)
 
 if (direction == 1 and t[button] == 0) then return end -- ignore down
 
--- NUMPAD START
-
-    if (button == 109) -- Num_Minus - Task Manager
+    if (button == 27) -- ESC - Task Manager
     then
-       lmc_spawn("taskmgr")
-       print("Launching task manager")
+       lmc_spawn("cmd")
+       print("Launching command line")
     end
-
--- NUMPAD END
 
 -- F KEYS START
 
@@ -53,6 +49,12 @@ if (direction == 1 and t[button] == 0) then return end -- ignore down
     then
        lmc_spawn("explorer", "E:\\")
        print("Opening E Drive")
+    end
+
+    if (button == 122) -- F11 - T Drive
+    then
+       lmc_spawn("explorer", "T:\\")
+       print("Opening T Drive")
     end
 
 -- F KEYS END
@@ -122,6 +124,16 @@ if (direction == 1 and t[button] == 0) then return end -- ignore down
        lmc_spawn("explorer", "C:\\Users\\Mcharlsto\\Desktop\\CAD")
        print("Opening CAD Folder")
     end
+
+-- NUMPAD START
+
+    if (button == 109) -- Num_Minus - Task Manager
+    then
+       lmc_spawn("taskmgr")
+       print("Launching task manager")
+    end
+
+-- NUMPAD END
 
  print('Key Pressed: ' .. button)
 end)
