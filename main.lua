@@ -4,7 +4,7 @@ lmc_print_devices()
 
 --minimize
 lmc.minimizeToTray = true
---lmc_minimize()
+lmc_minimize()
 
 -- define callback for whole device
 lmc_set_handler('MACROS',function(button, direction)
@@ -33,28 +33,70 @@ if (direction == 1 and t[button] == 0) then return end -- ignore down
         print("Opening Blender")
     end
 
+    if (button == 113) -- F2 - Kdenlive
+    then
+        lmc_spawn("C:\\Users\\c41670\\Software\\kdenlive-18.12.0\\bin\\kdenlive.exe")
+        print("Opening Kdenlive")
+    end
+
+    if (button == 114) -- F3 - GIMP
+    then
+        lmc_spawn("C:\\Users\\c41670\\Software\\GIMP-2.10.2\\App\\gimp\\bin\\gimp-2.10.exe")
+        print("Opening GIMP")
+    end
+
     if (button == 115) -- F4 - VS Code
     then
        lmc_spawn("C:\\Program Files\\Microsoft VS Code\\Code.exe")
        print("Opening VSCode")
     end
 
-    if (button == 120) -- F9 - Home Dir
+    if (button == 116) -- F5 - Inventor
     then
-       lmc_spawn("explorer", "%userprofile%")
-       print("Opening Home Directory")
+        lmc_spawn("C:\\Program Files\\Autodesk\\Inventor 2016\\Bin\\Inventor.exe")
+        print("Opening Inventor")
+    end
+
+    if (button == 117) -- F6 - Autodesk Suite
+    then
+        lmc_spawn("C:\\Program Files\\Autodesk\\Product Design Suite 2016\\Bin\\ProductDesignSuite.exe")
+        print("Opening Autodesk Suite")
+    end
+
+    if (button == 118) -- F7 - Cyclone
+    then
+        lmc_spawn("C:\\Program Files\\Leica Geosystems\\Cyclone\\Cyclone.exe")
+        print("Opening Cyclone")
+    end
+
+    if (button == 119) -- F8 - Solid Edge
+    then
+        lmc_spawn("C:\\Program Files\\Solid Edge ST6\\Program\\Edge.exe")
+        print("Opening Solid Edge")
+    end
+
+    if (button == 120) -- F9 - Work In Progress
+    then
+        lmc_spawn("explorer", "%userprofile%\\Documents\\02 - WORK IN PROGRESS")
+        print("Opening Work In Progress")
     end
 
     if (button == 121) -- F10 - E Drive
     then
-       lmc_spawn("explorer", "E:\\")
-       print("Opening E Drive")
+        lmc_spawn("explorer", "E:\\")
+        print("Opening E Drive")
     end
 
     if (button == 122) -- F11 - T Drive
     then
-       lmc_spawn("explorer", "T:\\")
-       print("Opening T Drive")
+        lmc_spawn("explorer", "T:\\")
+        print("Opening T Drive")
+    end
+
+    if (button == 123) -- F12 - Home Directory
+    then
+        lmc_spawn("explorer", "%userprofile%")
+        print("Opening Home Directory")
     end
 
 -- F KEYS END
