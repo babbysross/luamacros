@@ -4,7 +4,7 @@ lmc_print_devices()
 
 --minimize
 lmc.minimizeToTray = true
-lmc_minimize()
+--lmc_minimize()
 
 -- define callback for whole device
 lmc_set_handler('MACROS',function(button, direction)
@@ -12,9 +12,28 @@ lmc_set_handler('MACROS',function(button, direction)
 -- NUMLOCK workaround (send another NUMLOCK to toggle back to original state)
     if (button == 144)
     then
-      lmc_send_input(144, 0, 2); -- press NUMLOCK
       lmc_send_input(144, 0, 0); -- release NUMLOCK
+      lmc_send_input(144, 0, 2); -- press NUMLOCK
+
       -- print('reversing NUMLOCK to original state');
+    end
+
+-- CAPSLOCK workaround (send another CAPSLOCK to toggle back to original state)
+    if (button == 20)
+    then
+      lmc_send_input(20, 0, 0); -- release CAPSLOCK
+      lmc_send_input(20, 0, 2); -- press CAPSLOCK
+
+      -- print('reversing CAPSLOCK to original state');
+    end
+
+-- SCROLLLOCK workaround (send another SCROLLLOCK to toggle back to original state)
+    if (button == 145)
+    then
+      lmc_send_input(145, 0, 0); -- release SCROLLLOCK
+      lmc_send_input(145, 0, 2); -- press SCROLLLOCK
+
+      -- print('reversing SCROLLLOCK to original state');
     end
 
 if (direction == 1 and t[button] == 0) then return end -- ignore down
@@ -77,7 +96,7 @@ if (direction == 1 and t[button] == 0) then return end -- ignore down
 
     if (button == 120) -- F9 - Work In Progress
     then
-        lmc_spawn("explorer", "%userprofile%\\Documents\\02 - WORK IN PROGRESS")
+        lmc_spawn("explorer", "C:\\Users\\c41670\\Documents\\02 - WORK IN PROGRESS")
         print("Opening Work In Progress")
     end
 
@@ -95,7 +114,7 @@ if (direction == 1 and t[button] == 0) then return end -- ignore down
 
     if (button == 123) -- F12 - Home Directory
     then
-        lmc_spawn("explorer", "%userprofile%")
+        lmc_spawn("explorer", "C:\\Users\\c41670")
         print("Opening Home Directory")
     end
 
